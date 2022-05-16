@@ -1,0 +1,42 @@
+spzce required as a function of input size
+-->we deal with auxiliary space we don't consider the space within which we r woring
+*example if we r given an array aur hum usi array me se interchanging katre hai to wo count nhi hoga
+*but if ek array given hai and hum new array le rhe hai so wo space complexity me count hoga
+-->peak of s vs t curve defines max space we need
+-->while(i<n){
+    int k;----->here the space complexity is not 4n becuause we r takinf 4 bits n times but we must note that assoon as while is comp that 4 bits is destroryed 
+    i++;-->space compl=0(1),total 4 bytes is only used
+
+}
+-->int fact(int n){
+    if(n==0){
+        return 1;
+    }
+    return n*fact(n-1);
+}
+*in this q we can say that k yahan to koi mem use nhi ho rhi
+*but actually rec me base case hit karne se pehle saare functions mem hold akrke rakhte hau so let's say k agar ek function k mm use karta hai to n functions nk spac comp pr work krte hai
+-->bubble sort-:
+*we don't take another array
+*we take 3 var,i ,j ,temp
+*ek scan swap
+*next scan swap
+continued.
+*agar hum array 1000 ka laye ya 10 ka space compl vary nahi ho rhi hai O(n^0)
+--->binay search-:mid low high 
+recursion->then space comp comes into picture
+f(n)->f(n/2)->f(n/4)----->f(1)-->then space complex of binary serch by recursion has space compl of logn.
+-->merge sort space compl-:
+ *first see methd of merge sort->yt.
+ -->fibonacci -:
+     4
+   3   2      --->time expoential leta hai lekin space O(n) leta hai
+ 2  1  1 0
+1 0  
+
+4->3->2->1->0->1->2->1->0
+n,n-1,n-2,...,2,1.=>call order=>n functions call=>O(n).
+-->tower of hanio->space and time compl yt se study
+-->T(n) = 2T(n/2) + Logn
+let log n=logn2-->hint
+

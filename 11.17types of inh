@@ -1,0 +1,38 @@
+1.single done
+2.multi level done
+3.heirarchi-->a se bcd
+           -->c se vehicle vehicle se 3 further-->order verucal me padh liya horizontal me jo pehle likha horizontal
+
+4.multiple inheritance-->multiple base classes ko same class inherit kr rhi horizontal--->constr ka ordeer 
+                      -->public teacher,public student
+                      -->C A,B dono ko inherit kar rha dono me print functon hai hai
+                      -->a(C KA OBJECT).print()-->ambiguity hai
+                      -->a.A::print()--->A ka print aa jayega
+                      -->sabse pehle apne class me print find karge then derived me jayega agar nhi mila to
+                      -->same name of members ke case me
+5.Hybid Inheritance-->a,b se c c se d d se e,find
+                   -->
+6.Daimond prblem-->vehicle
+                car        Truck
+                     Bus
+                -->Bus ka object bana to pehle car ka then truck ka
+                -->usse pehle car Vehicle k cqll arga
+                -->vehicle->car->Bus
+                -->as truck ko baari  Vehicle->trck->bus---.expected
+                -->fir destructor ka order constructor ke bilkul opp hota hai
+                -->ab print function sabke paas hai
+                -->b jayega car aur truck ke paas-->but kiska pehle
+                -->isme bhi wahi abigity waha concept ayega
+                -->ab agar print function car ke paas hoga to wo vehicle tak nhi jayega otherwise vehcle tak jayega
+                -->yahan vehicle do baar call ho rha hai.
+7.  d->b,c se b.c a se
+     ->now a ka do baar copy le rhe hai
+     use class d:virtual public:a -->a ki ek hi copy hai'
+     ->isme order-:
+     vehicle
+     car(v)    truck(v)
+       bus 
+    -->order->ab bas b directly vehicle ka constructor call arga
+    -->uske baad-->car ka then truck then bus ka
+and ab wahi concepts k parametused constr......apply karte raho
+8.daigram me new class elements and classes ka arrow and special scope lines likh do for better scaling

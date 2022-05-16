@@ -1,0 +1,14 @@
+1.compile time->we wil deciede how to behave in compile ime
+2.run time->we will decide at run time how to behave
+3.function overloading --->polymorphism
+4.void aur int return type ke acc overloading nhi krsakte\
+5.function overriding-->A se B derive hua
+   (compile time)    -->A me print hai leking B ne bhi bhi print ko banaya hai
+                     -->consructor ka order rahta hai lekin gar ki function child me mil gya to parent me nhi jata
+6.Vehicle *v1=new Vehicle-->pointer pointing to object of class vehicle;
+   (compile time)        =size 8 bytes
+                         =v1=&v;
+                         =ab is v1 se main sirf v ki chozo ko acess ka sakta hua
+                         =ye check nhi karta ki v se inheritance relation hai kisi ka ya nhi
+7.now discussing run time polymorphism-:===================================================================================
+--.virtual functions->

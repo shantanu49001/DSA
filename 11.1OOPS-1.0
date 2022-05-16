@@ -1,0 +1,9 @@
+//4.TEMPLATES TAK HO GYA.
+//student1-->name,roll_no_,age,address,contact roll_no_
+//changeAddress,setRoll,--->functions corresponding to it.
+  ----------.
+  | name    |
+  | roll_no_|----->s1(object) me ye sab aa jata hai
+  | Age     |
+  -----------
+   (student)--->class(blueprijt of properies and functions for that object)

@@ -1,0 +1,35 @@
+//FIRST COMPLETE THE FILE INFO FROM FOLDERS
+//FIRST COMPLETE THE FILE INFO FROM FOLDERS
+//FIRST COMPLETE THE FILE INFO FROM FOLDERS
+//FIRST COMPLETE THE FILE INFO FROM FOLDERS
+//FIRST COMPLETE THE FILE INFO FROM FOLDERS
+//FIRST COMPLETE THE FILE INFO FROM FOLDERS
+//FIRST COMPLETE THE FILE INFO FROM FOLDERS
+//FIRST COMPLETE THE FILE INFO FROM FOLDERS
+//FIRST COMPLETE THE FILE INFO FROM FOLDERS
+//FIRST COMPLETE THE FILE INFO FROM FOLDERS
+//FIRST COMPLETE THE FILE INFO FROM FOLDERS
+//FIRST COMPLETE THE FILE INFO FROM FOLDERS
+//FIRST COMPLETE THE FILE INFO FROM FOLDERS
+//FIRST COMPLETE THE FILE INFO FROM FOLDERS
+
+-->only recurstion with mutlple brealing loke su bscpaces is my wek point
+--==========================================================================================================
+-->we not only want that our problem must be solved but also it must take less space and time for execution
+-->merge sort is very fatser than selection sort
+-->10k pr merge=0.013026 se but selection took 24 sec
+-->test cases deciedes speed and preference of our algorithm
+-->so we consider the worst cases 
+-->only dominant terms are compared.
+-->bubble sort->adj ko comp greatest lst ;then again
+-->insertion sort worst case->
+*5410162(Worst case):5|410162 at each step think of worst case
+        :25|41016  here com must be max index possibe
+        :125|4106  sorted me comp nhi krte hai wo to bas index pr add krte jate hai
+*1 2 4 5 6 10(Best case):here comp must be at only first index
+-->linear serch worst case-:element mile hi nhi
+-->selection sort-:first index ko min let then rest me min find karke pehle se replace
+32 5 4 3 2 1->worst cse ->32 min initiall rest move min change kete ja aur final min ko 32 se swap kardo
+            ->iska bhi o(n2)
+->theor analy-.time com determined by no of steps
+            

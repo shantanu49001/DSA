@@ -1,0 +1,29 @@
+1.A->B->KO INHERIT KIYA C NE--->
+                            --->a ka object bana to sirf a ka constructor call
+                            --->b ka object bana to pehle a ka then b ka constructor call
+                            --->c ka object bana to a ka fir b ka fir c ka
+2.destructor k aorder ulta hota hai
+3.default constructor apne aap call hota(jaise c ka tha object) ha lekin parametrised constructor ke liye hume explicitly mention krna padega
+4.3ko dobara dekhna 
+class Vehicle{
+    prinate:
+    proyected:
+    public:
+    Vehicle(){//constructor
+
+    }
+    Vehicle(int z){//prameterised constructor
+
+    }
+    ~Vehicle(){
+
+    }
+};
+here id a car class is made with objet c,the by default empty wala vehicle constr call hoga
+but agar [parametrised constru call krna hai to ] define krna padega
+CLss Car:public Vehicle{
+    Car():Vehicle(5){//aise mention karna padega
+
+    }
+};
+//aur ha agar parent mr sirf parameterised constructor hai to hume definilty parametrised ko specifically call karna hi padega

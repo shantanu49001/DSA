@@ -1,0 +1,18 @@
+1.single ll-->already stdied
+2.doble ll-->both side null
+          -->between 2 links
+        class   Node{
+          int data;
+          Node *next;   //data->4 byttes ;2 add=16 bytes
+          Node *prev;
+          }
+
+3.circular->last node isn't add null but at first node
+          ->last node ka identify when we get to same node again ,ptr to comapre krna hai,do while might help
+          ->temp=head->next;
+          while(temp!=head){
+
+          }
+4.we can use this to reverse an ll too
+5.take care when we insert a node at head and last
+6.circular double ll
