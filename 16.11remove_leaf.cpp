@@ -1,5 +1,16 @@
+/*     1--------->    1
+     2   3          2
+  4    5              5
+         6
+
+
+*/
+
+
 #include <bits\stdc++.h>
+#include <math.h>
 #include <queue>
+//#include <limits.h> //for infinty
 using namespace std;
 class BinaryTree
 {
@@ -20,7 +31,7 @@ BinaryTree *takeInput()
     printf("Enter root data\n");
     scanf("%d", &rootData);
     BinaryTree *root = new BinaryTree(rootData);
-   
+
     queue<BinaryTree *> pendingNodes;
     pendingNodes.push(root);
     while (pendingNodes.size() != 0)
@@ -35,7 +46,6 @@ BinaryTree *takeInput()
             BinaryTree *leftChild = new BinaryTree(leftChildData);
             front->left = leftChild;
             pendingNodes.push(leftChild);
-            
         }
         int rightChildData;
         printf("Enter right child Data of %d\n", front->data);
@@ -45,17 +55,16 @@ BinaryTree *takeInput()
             BinaryTree *rightChild = new BinaryTree(rightChildData);
             front->right = rightChild;
             pendingNodes.push(rightChild);
-            
         }
     }
-    
+
     return root;
 }
 void PrintTree(BinaryTree *r)
 {
     if (r == NULL)
     {
-        return;
+        return; // void
     }
     printf("%d: ", r->data);
     if (r->left != NULL)
@@ -70,28 +79,45 @@ void PrintTree(BinaryTree *r)
     PrintTree(r->left);
     PrintTree(r->right);
 }
-void search(BinaryTree *r,int element){
-if (r==NULL)
-{
-    return;
-}
-if (r->data==element)
-{
-    printf("Element present in the BT\n");
-    return;
-}
-search(r->left,element);
-search(r->right,element);
+BinaryTree* remove_leaf(BinaryTree *r){
+    /*
+    consider only the root
+    rt  -->if roott ka left &right ==nulll
+   l r
+    */
+    if (r==NULL)
+    {
+        return NULL;
+    }
+    //free (root)
+    //return null
+    if (r->left==NULL&&r->right==NULL)
+    {
+        free(r);
+        return NULL;
+    }
+    
+  /*  remove_leaf(r->left);
+    remove_leaf(r->right);
+    */
+   r->left=remove_leaf(r->left);
+   r->right=remove_leaf(r->right);
+   //we are assigning the right and left of first most root as we are deleting the nodes so we must also connect the left and right of our root 
+   //since lrft and right are also the effective roots we wrote this
+   //1.root ka left and right null check
+   //2.if null we are freeing the node
+   //3.if not we are connecing the left and right of root rom the chuldren who also go through the same process.
+    return r;
 
-printf("Not in this tree\n");
 }
-int main(){
-    BinaryTree *root=takeInput();
-    printf("You entered\n");
+int main()
+{
+    BinaryTree *root = takeInput();
+    printf("You Entered\n");
     PrintTree(root);
-    int element;
-    printf("Enter node data to search\n");
-    scanf("%d",&element);
-    search(root,element);
+    printf("\n");
+    printf("Now removing the leaf nodes\n");
+  BinaryTree *n=  remove_leaf(root);
+    PrintTree(n);
     return 0;
 }

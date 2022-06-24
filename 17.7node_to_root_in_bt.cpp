@@ -1,6 +1,9 @@
-#include <bits\stdc++.h>
+#include <stdio.h>
+#include <stdlib.h>
 #include <queue>
+#include<vector>
 using namespace std;
+//examine this code properly it has how to append data in array dynamicaly.
 class BinaryTree
 {
 public:
@@ -20,7 +23,7 @@ BinaryTree *takeInput()
     printf("Enter root data\n");
     scanf("%d", &rootData);
     BinaryTree *root = new BinaryTree(rootData);
-   
+
     queue<BinaryTree *> pendingNodes;
     pendingNodes.push(root);
     while (pendingNodes.size() != 0)
@@ -35,7 +38,6 @@ BinaryTree *takeInput()
             BinaryTree *leftChild = new BinaryTree(leftChildData);
             front->left = leftChild;
             pendingNodes.push(leftChild);
-            
         }
         int rightChildData;
         printf("Enter right child Data of %d\n", front->data);
@@ -45,17 +47,16 @@ BinaryTree *takeInput()
             BinaryTree *rightChild = new BinaryTree(rightChildData);
             front->right = rightChild;
             pendingNodes.push(rightChild);
-            
         }
     }
-    
+
     return root;
 }
 void PrintTree(BinaryTree *r)
 {
     if (r == NULL)
     {
-        return;
+        return; // void
     }
     printf("%d: ", r->data);
     if (r->left != NULL)
@@ -70,28 +71,69 @@ void PrintTree(BinaryTree *r)
     PrintTree(r->left);
     PrintTree(r->right);
 }
-void search(BinaryTree *r,int element){
+//understand this properly.
+//with flow example .
+vector<int>* getRootNodePath(BinaryTree *r, int n){
 if (r==NULL)
 {
-    return;
+    return NULL;
 }
-if (r->data==element)
+if (r->data==n)
 {
-    printf("Element present in the BT\n");
-    return;
+    vector<int>* output=new vector<int>();
+    output->push_back(r->data);
+    return output;
 }
-search(r->left,element);
-search(r->right,element);
+vector<int>* leftOutput=getRootNodePath(r->left,n);
+if (leftOutput!=NULL)
+{
+    leftOutput->push_back(r->data);
+    return leftOutput;
+}
+vector<int>* rightOutput=getRootNodePath(r->right,n);
+if (rightOutput!=NULL)
+{
+    rightOutput->push_back(r->data);
+    return rightOutput;
+}
+else{
+    return NULL;
+}
+/*
+explanation->
+     1
+   2   3
+-->exit conditions known
+-->let r1=n
+-->then move to left nod and if it is not null
+-->we assume we get by calling recursion that matches it with r as left 
+and then mush back
+-->similary for right and if if of right isn't true then it is no where in the tree
 
-printf("Not in this tree\n");
+
+
+
+
+
+*/
+
+
+
+
+
+
 }
 int main(){
     BinaryTree *root=takeInput();
     printf("You entered\n");
     PrintTree(root);
-    int element;
-    printf("Enter node data to search\n");
-    scanf("%d",&element);
-    search(root,element);
+    printf("\n");
+    vector<int>* output=getRootNodePath(root,7);
+    for (int i = 0; i < output->size(); i++)
+    {
+        printf("%d->",output->at(i));
+    }
+    delete output;
+    
     return 0;
 }

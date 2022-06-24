@@ -1,5 +1,14 @@
-#include <bits\stdc++.h>
-#include <queue>
+/*
+    30
+  40   70
+range->  10-50
+if root->data >min   && root->data<.ax--->print
+if root->left ->data >min &&<max -->root->left   
+if root->right->data <
+*/
+#include<stdio.h>
+#include<stdlib.h>
+#include<queue>
 using namespace std;
 class BinaryTree
 {
@@ -20,7 +29,7 @@ BinaryTree *takeInput()
     printf("Enter root data\n");
     scanf("%d", &rootData);
     BinaryTree *root = new BinaryTree(rootData);
-   
+
     queue<BinaryTree *> pendingNodes;
     pendingNodes.push(root);
     while (pendingNodes.size() != 0)
@@ -35,7 +44,6 @@ BinaryTree *takeInput()
             BinaryTree *leftChild = new BinaryTree(leftChildData);
             front->left = leftChild;
             pendingNodes.push(leftChild);
-            
         }
         int rightChildData;
         printf("Enter right child Data of %d\n", front->data);
@@ -45,17 +53,16 @@ BinaryTree *takeInput()
             BinaryTree *rightChild = new BinaryTree(rightChildData);
             front->right = rightChild;
             pendingNodes.push(rightChild);
-            
         }
     }
-    
+
     return root;
 }
 void PrintTree(BinaryTree *r)
 {
     if (r == NULL)
     {
-        return;
+        return; // void
     }
     printf("%d: ", r->data);
     if (r->left != NULL)
@@ -70,28 +77,30 @@ void PrintTree(BinaryTree *r)
     PrintTree(r->left);
     PrintTree(r->right);
 }
-void search(BinaryTree *r,int element){
+void PrintInRange(BinaryTree *r,int max,int min){
 if (r==NULL)
 {
     return;
 }
-if (r->data==element)
+if (r->data<=max&&r->data>=min)
 {
-    printf("Element present in the BT\n");
-    return;
+    printf("%d ",r->data);
 }
-search(r->left,element);
-search(r->right,element);
+PrintInRange(r->left,max,min);
+PrintInRange(r->right,max,min);
 
-printf("Not in this tree\n");
+
 }
 int main(){
     BinaryTree *root=takeInput();
-    printf("You entered\n");
+    printf("You Entered\n");
     PrintTree(root);
-    int element;
-    printf("Enter node data to search\n");
-    scanf("%d",&element);
-    search(root,element);
+    int max;
+    int min;
+    printf("Enter max and min for ur range of search\n");
+    scanf("%d",&max);
+    scanf("%d",&min);
+    PrintInRange(root,max,min);
+    
     return 0;
 }

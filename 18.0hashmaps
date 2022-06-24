@@ -1,0 +1,13 @@
+1.we want to store key value pairs
+2.in case of array key is alyas integer
+3.a[0/1/2/3]
+4.maps->insert(key,value)
+      ->getvalue()
+      ->deletekey
+these are the three functions needed.
+5.implemeting hasmaps using ll->already done by me index and value
+6.all three have O(n) complexity.
+7.another method is by bst.
+8.height=logn.
+8.insertion,deletion,search all log needed.
+9.hash table even better O(1).

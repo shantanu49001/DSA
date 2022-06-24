@@ -83,4 +83,5 @@ int main(){
     q.Deqeue();
 
     q.front();
+    printf("size is %d",q.size());
 }

@@ -1,5 +1,6 @@
 #include <bits\stdc++.h>
 #include <queue>
+//#include <limits.h> //for infinty
 using namespace std;
 class BinaryTree
 {
@@ -20,7 +21,7 @@ BinaryTree *takeInput()
     printf("Enter root data\n");
     scanf("%d", &rootData);
     BinaryTree *root = new BinaryTree(rootData);
-   
+
     queue<BinaryTree *> pendingNodes;
     pendingNodes.push(root);
     while (pendingNodes.size() != 0)
@@ -35,7 +36,6 @@ BinaryTree *takeInput()
             BinaryTree *leftChild = new BinaryTree(leftChildData);
             front->left = leftChild;
             pendingNodes.push(leftChild);
-            
         }
         int rightChildData;
         printf("Enter right child Data of %d\n", front->data);
@@ -45,17 +45,16 @@ BinaryTree *takeInput()
             BinaryTree *rightChild = new BinaryTree(rightChildData);
             front->right = rightChild;
             pendingNodes.push(rightChild);
-            
         }
     }
-    
+
     return root;
 }
 void PrintTree(BinaryTree *r)
 {
     if (r == NULL)
     {
-        return;
+        return; // void
     }
     printf("%d: ", r->data);
     if (r->left != NULL)
@@ -70,28 +69,20 @@ void PrintTree(BinaryTree *r)
     PrintTree(r->left);
     PrintTree(r->right);
 }
-void search(BinaryTree *r,int element){
+int TreeSum(BinaryTree *r){
 if (r==NULL)
 {
-    return;
+    return INT_MIN;//issue resolves int min=0;node nhi hai to sum contribuion bhi 0
 }
-if (r->data==element)
-{
-    printf("Element present in the BT\n");
-    return;
-}
-search(r->left,element);
-search(r->right,element);
-
-printf("Not in this tree\n");
+int sum=0;
+sum+=r->data+TreeSum(r->left)+TreeSum(r->right);
+return sum;
 }
 int main(){
-    BinaryTree *root=takeInput();
-    printf("You entered\n");
-    PrintTree(root);
-    int element;
-    printf("Enter node data to search\n");
-    scanf("%d",&element);
-    search(root,element);
+    BinaryTree *r=takeInput();
+    printf("You Entered\n");
+    PrintTree(r);
+   // int sum=0;
+ printf("The sum of tree elemnts is %d",   TreeSum(r));
     return 0;
 }

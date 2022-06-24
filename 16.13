@@ -1,0 +1,27 @@
+Q1.
+
+level 1 -->left to right print
+level 2-->right to left
+
+
+1.if will have to maintain a counter at each root level 
+2.for level%2==0---->left to right print oder  fiunction else 
+                ---->right to left print order function.
+
+
+
+
+Q2.iam only required to print those.
+
+I am required to print nodes that don't have siblings
+1.root null
+2.if (root->left||root->right==NUll){
+    if(root->left==NUll){
+        printf rigt
+    }
+    else{
+        print left
+    }
+}
+print(r->left);
+print(r->right);

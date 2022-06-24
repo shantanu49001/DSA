@@ -1,5 +1,13 @@
-#include <bits\stdc++.h>
+//DAIMETER ->MAXIMUM DISTANCE BETWEEN TWO POINTS.
+//MAXIMUM DISTANCE BETWEEN TWO NODES.
+//3:00 TIME STAMP
+//LEFT HEIGHT +RIGHT HEIGHT->TWO TWO NODES ARE OPPE
+//LEFT HEIGHT/RIGHT HEIGHT IF BTH ARE AT SAME NODE
+//MAX OF ALL THESE IS THE DAIMETER OF TREE
+#include <stdio.h>
+#include<stdlib.h>
 #include <queue>
+#include<math.h>
 using namespace std;
 class BinaryTree
 {
@@ -20,7 +28,7 @@ BinaryTree *takeInput()
     printf("Enter root data\n");
     scanf("%d", &rootData);
     BinaryTree *root = new BinaryTree(rootData);
-   
+
     queue<BinaryTree *> pendingNodes;
     pendingNodes.push(root);
     while (pendingNodes.size() != 0)
@@ -35,7 +43,6 @@ BinaryTree *takeInput()
             BinaryTree *leftChild = new BinaryTree(leftChildData);
             front->left = leftChild;
             pendingNodes.push(leftChild);
-            
         }
         int rightChildData;
         printf("Enter right child Data of %d\n", front->data);
@@ -45,10 +52,9 @@ BinaryTree *takeInput()
             BinaryTree *rightChild = new BinaryTree(rightChildData);
             front->right = rightChild;
             pendingNodes.push(rightChild);
-            
         }
     }
-    
+
     return root;
 }
 void PrintTree(BinaryTree *r)
@@ -70,28 +76,34 @@ void PrintTree(BinaryTree *r)
     PrintTree(r->left);
     PrintTree(r->right);
 }
-void search(BinaryTree *r,int element){
-if (r==NULL)
+ int height(BinaryTree *r)
 {
-    return;
-}
-if (r->data==element)
-{
-    printf("Element present in the BT\n");
-    return;
-}
-search(r->left,element);
-search(r->right,element);
+    if (r == NULL)
+    {
+        return 0; // 0 as in answer .
+    }
 
-printf("Not in this tree\n");
+    return max(height(r->left), height(r->right)) + 1;
 }
-int main(){
-    BinaryTree *root=takeInput();
-    printf("You entered\n");
-    PrintTree(root);
-    int element;
-    printf("Enter node data to search\n");
-    scanf("%d",&element);
-    search(root,element);
-    return 0;
+int Daimeter(BinaryTree *r)
+{
+    if (r == NULL)
+    {
+        return 0; // 0 as in answer .
+    }
+    int option1=height(r->left) + height(r->right);//when both ae at differentimmediate parent
+    int option2=Daimeter(r->left);//when both the max odes are at same psarent (immediate)//we are nting parent's height
+    int option3=Daimeter(r->right);
+    return max(option1,option2,option3)/2; 
+    
+
 }
+    int main()
+    {
+        BinaryTree *root = takeInput();
+        printf("You Entered\n");
+        PrintTree(root);
+        printf("Radius of three is \n");
+
+        return 0;
+    }

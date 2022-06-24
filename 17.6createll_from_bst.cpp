@@ -1,6 +1,14 @@
-#include <bits\stdc++.h>
+// we have to create a sorted ll from bst.
+//review this code.
+//review this code.
+//review this code.
+//review this code.
+//review this code.
+#include <stdio.h>
+#include <stdlib.h>
 #include <queue>
 using namespace std;
+
 class BinaryTree
 {
 public:
@@ -20,7 +28,7 @@ BinaryTree *takeInput()
     printf("Enter root data\n");
     scanf("%d", &rootData);
     BinaryTree *root = new BinaryTree(rootData);
-   
+
     queue<BinaryTree *> pendingNodes;
     pendingNodes.push(root);
     while (pendingNodes.size() != 0)
@@ -35,7 +43,6 @@ BinaryTree *takeInput()
             BinaryTree *leftChild = new BinaryTree(leftChildData);
             front->left = leftChild;
             pendingNodes.push(leftChild);
-            
         }
         int rightChildData;
         printf("Enter right child Data of %d\n", front->data);
@@ -45,17 +52,16 @@ BinaryTree *takeInput()
             BinaryTree *rightChild = new BinaryTree(rightChildData);
             front->right = rightChild;
             pendingNodes.push(rightChild);
-            
         }
     }
-    
+
     return root;
 }
 void PrintTree(BinaryTree *r)
 {
     if (r == NULL)
     {
-        return;
+        return; // void
     }
     printf("%d: ", r->data);
     if (r->left != NULL)
@@ -70,28 +76,59 @@ void PrintTree(BinaryTree *r)
     PrintTree(r->left);
     PrintTree(r->right);
 }
-void search(BinaryTree *r,int element){
-if (r==NULL)
+void printNode(BinaryTree *r)
 {
-    return;
+    while (r->right != NULL)
+    {
+        printf("%d->", r->data);
+        r = r->right;
+    }
 }
-if (r->data==element)
-{
-    printf("Element present in the BT\n");
-    return;
-}
-search(r->left,element);
-search(r->right,element);
 
-printf("Not in this tree\n");
+BinaryTree *createll(BinaryTree *r)
+{
+    // shoretest order of bst is in inorder traversal
+    if (r == NULL)
+    {
+        return NULL;
+    }
+    /*
+            5
+         3      7
+        2  4   6  8
+
+2->3->4->5->6->7->8->n--------->this traversal is obtained by inoder of bst
+|  |  |  |  |  |  |
+n  n  n  n  n  n  n      ===>concept.
+    basic
+
+    */
+    //  5
+    // 3  7--->basic
+    if (r == NULL)
+    {
+        return NULL;
+    }
+    createll(r->left);
+    r->left->left = NULL;
+    r->left->right = r;
+    createll(r);
+    // r's right is unchaged.
+    r->left = NULL;
+    createll(r->right);
+    r->right->left = NULL;
+    r->right->right = NULL;
+
+    return r;
 }
-int main(){
-    BinaryTree *root=takeInput();
-    printf("You entered\n");
+int main()
+{
+    BinaryTree *root = takeInput();
+    printf("You Entered\n");
     PrintTree(root);
-    int element;
-    printf("Enter node data to search\n");
-    scanf("%d",&element);
-    search(root,element);
+    BinaryTree *ll = createll(root);
+    printf("Sorted ll is\n");
+    printNode(ll);
+
     return 0;
 }

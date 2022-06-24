@@ -1,18 +1,18 @@
-#include <bits\stdc++.h>
-#include <queue>
+//har ek ke child ko swap karna hai isme.
+
+#include<bits\stdc++.h>
+#include<queue>
 using namespace std;
-class BinaryTree
-{
-public:
-    int data;
-    BinaryTree *left;
-    BinaryTree *right;
-    BinaryTree(int data)
-    {
-        this->data = data;
-        this->left = NULL;
-        this->right = NULL;
-    }
+class BinaryTree{
+    public:
+int data;
+BinaryTree *left;
+BinaryTree *right;
+BinaryTree(int data){
+    this->data=data;
+    this->left=NULL;
+    this->right=NULL;
+}
 };
 BinaryTree *takeInput()
 {
@@ -20,7 +20,7 @@ BinaryTree *takeInput()
     printf("Enter root data\n");
     scanf("%d", &rootData);
     BinaryTree *root = new BinaryTree(rootData);
-   
+
     queue<BinaryTree *> pendingNodes;
     pendingNodes.push(root);
     while (pendingNodes.size() != 0)
@@ -35,7 +35,6 @@ BinaryTree *takeInput()
             BinaryTree *leftChild = new BinaryTree(leftChildData);
             front->left = leftChild;
             pendingNodes.push(leftChild);
-            
         }
         int rightChildData;
         printf("Enter right child Data of %d\n", front->data);
@@ -45,10 +44,9 @@ BinaryTree *takeInput()
             BinaryTree *rightChild = new BinaryTree(rightChildData);
             front->right = rightChild;
             pendingNodes.push(rightChild);
-            
         }
     }
-    
+
     return root;
 }
 void PrintTree(BinaryTree *r)
@@ -70,28 +68,26 @@ void PrintTree(BinaryTree *r)
     PrintTree(r->left);
     PrintTree(r->right);
 }
-void search(BinaryTree *r,int element){
-if (r==NULL)
-{
-    return;
-}
-if (r->data==element)
-{
-    printf("Element present in the BT\n");
-    return;
-}
-search(r->left,element);
-search(r->right,element);
+BinaryTree* mirrorTree(BinaryTree *r){
+    if (r==NULL)
+    {
+        return NULL;
+    }
+    BinaryTree *temp=NULL;
+    temp=r->left;
+    r->left=r->right;
+    r->right=temp;
+    mirrorTree(r->left);
+    mirrorTree(r->right);
+    return r;
 
-printf("Not in this tree\n");
 }
 int main(){
     BinaryTree *root=takeInput();
-    printf("You entered\n");
+    printf("You Entered\n");
     PrintTree(root);
-    int element;
-    printf("Enter node data to search\n");
-    scanf("%d",&element);
-    search(root,element);
+    printf("\n");
+    printf("Mirror Tree\n");
+    PrintTree(mirrorTree(root));
     return 0;
 }

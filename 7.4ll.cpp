@@ -10,6 +10,7 @@ public:
         next = NULL;
     }
 };
+
 int main()
 { // n1->head node;n2->tail node
     //  Node n1;-->sirf itn likenge to default constructor cal hoga but humne to apna banaya hai constructor
