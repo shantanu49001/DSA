@@ -98,7 +98,7 @@ BinaryTree *buildTreeHelper(int *n, int *pre, int inS, int inE, int preS, int pr
     BinaryTree *root=new BinaryTree(rootData);
     root->left=buildTreeHelper(in,pre,lInS,lInE,lPreS,lPreE);
     root->right=buildTreeHelper(in,pre,rInS,rInE,rPreS,rPreE);
-    reurn root;
+    return root;
 }
 BinaryTree *buildTree(int *in, int *pre, int size)
 {

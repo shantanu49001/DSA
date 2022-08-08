@@ -62,7 +62,7 @@ private:
                 node->right = NULL;
                 delete node;
                 return temp;
-                ;
+                
             }
             else if (node->right == NULL)
             {
@@ -73,6 +73,7 @@ private:
             }
             else // most intersting case-->where right and left both are not null
                  // minimum of right is the replacement
+                 {
                 BinaryTreeNode *minNode = node->right;
             while (minNode->left != NULL)
             {
@@ -81,6 +82,7 @@ private:
             int rightMin = minNode->data;
             node->data = rightMin;
             node->right = (rightMin, node->right);
+                 }
             return node;
         }
     }

@@ -92,16 +92,14 @@ int minimum(BinaryTree *r){
         return INT_MAX;//reurn max no possible
     }
     //this is the builtin function
-    return min(r->data,minimum(r->left),minimum(r->right));
-    
-
+    return min(r->data, min(minimum(r->left), minimum(r->right)));
 }
 int maximum(BinaryTree *r){
     if (r==NULL)
     {
         return INT_MIN;
     }
-    return max(r->data,minimum(r->left),minimum(r->right));
+    return max(r->data, max(maximum(r->left), maximum(r->right)));
     //this is the built in
     
 
