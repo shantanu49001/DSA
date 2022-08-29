@@ -34,11 +34,4 @@ word searching me word ke suffixes match
 to solve this
 2.Suffix tries->specially fo patternmatching but less space effiecient
                ->also when beech ke elements search krne hote hai
-bend insert krte time bend insert krte time b nd end i.e word ke saare sufixes bhi insert krna hai
-
-
-
-
-
-
-*/
+bend insert krte time bend insert krte time b nd end i.e word ke saare sufixes bhi insert krna hai*/

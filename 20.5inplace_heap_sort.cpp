@@ -65,7 +65,7 @@ void inplaceHeapSort(int pq[], int n)
             int minIndex = parentIndex;
             if (pq[minIndex] > pq[leftChildIndex])
             {
-                minIndex - leftChildIndex;
+                minIndex = leftChildIndex;
             }
             if (rightChildIndex < size && pq[rightChildIndex] < pq[minIndex])
             {

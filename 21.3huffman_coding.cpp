@@ -41,10 +41,6 @@ Decompression->we now have a bit not the file
 |
 |
 now repatet this
-
-
-
-
 Implenetaion--.
 maiantain the count 
 list me se 2 min select ->min pq can help->insert the list to min pq
@@ -54,12 +50,4 @@ list me se 2 min select ->min pq can help->insert the list to min pq
                         ->now eement and count structure is like a binary tree
                         ->har ode me char count lef tchild path right child path hoga
                         ->now to get a code search the element by movinf from left to right from the root and if we move feft 0 then right me 1
-                        ->and save that to a hashmap->10 se multiply krte kete add krte jao
-                        
-
-
-
-
-
-
-*/
+                        ->and save that to a hashmap->10 se multiply krte kete add krte jao*/
