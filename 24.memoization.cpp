@@ -33,7 +33,7 @@ int lcs_mem(string s,string t,int **output){
         int a = lcs_mem(s.substr(1), t,output); // 14:15
         int b = lcs_mem(s, t.substr(1),output);
         int c = lcs_mem(s.substr(1), t.substr(1),output);
-        return max(a, max(b, c));
+        ans=max(a, max(b, c));
     }
     //saving the calculation
     output[m][n]=ans;

@@ -52,7 +52,7 @@ int lcs(string s,string t){
     int a=lcs(s.substr(1),t);//14:15
     int b=lcs(s,t.substr(1));
     int c=lcs(s.substr(1),t.substr(1));
-    return max(a,max(b,c));
+    return max(a,max(b,c))+1;
 }
 int main()
 {   string s,t;

@@ -48,7 +48,7 @@ int minSteps(int n){
         int y = minSteps(n / 2);
     }
     if (n%3==0)
-    {
+    { 
         int z = minSteps(n / 3);
     }
     
